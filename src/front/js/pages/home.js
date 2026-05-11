@@ -1,26 +1,55 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 
 export const Home = () => {
-	const { store, actions } = useContext(Context);
+	const { store } = useContext(Context);
+	const [darkMode, setDarkMode] = useState(false);
+
+	// Persistir modo oscuro
+	useEffect(() => {
+		const saved = localStorage.getItem("darkMode");
+		if (saved === "true") setDarkMode(true);
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem("darkMode", darkMode);
+	}, [darkMode]);
 
 	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
-			<div className="alert alert-info">
-				{store.message || "Loading message from the backend (make sure your python backend is running)..."}
+		<div className={`home ${darkMode ? "dark" : ""}`}>
+
+			{/* Toggle modo */}
+			<div className="top-bar">
+				<button className="toggle" onClick={() => setDarkMode(!darkMode)}>
+					{darkMode ? "☀️ Claro" : "🌙 Oscuro"}
+				</button>
 			</div>
-			<p>
-				This boilerplate comes with lots of documentation:{" "}
-				<a href="https://start.4geeksacademy.com/starters/react-flask">
-					Read documentation
+
+			{/* Hero */}
+			<div className="hero">
+				<h1 className="title">NeedYou</h1>
+				<p className="subtitle">
+					Encontrá profesionales cerca tuyo en segundos
+				</p>
+			</div>
+
+			{/* Botones separados */}
+			<div className="buttons">
+				<a href="/login">
+					<button className="btn pastel-blue">Iniciar sesión</button>
 				</a>
-			</p>
+
+				<a href="/register">
+					<button className="btn pastel-purple">Registrarse</button>
+				</a>
+			</div>
+
+			{/* Mensaje opcional backend */}
+			<div className="info">
+				{store.message || "Bienvenida a NeedYou ✨"}
+			</div>
+
 		</div>
 	);
 };

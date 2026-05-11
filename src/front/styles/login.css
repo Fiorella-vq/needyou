@@ -1,0 +1,108 @@
+/* -----------------------------
+   CONTENEDOR PRINCIPAL
+----------------------------- */
+.login-container {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(135deg, #f5e9ff, #e0f0ff, #ffe4f0);
+	font-family: 'Segoe UI', sans-serif;
+	transition: 0.3s;
+}
+
+/* -----------------------------
+   MODO OSCURO
+----------------------------- */
+.login-container.dark {
+	background: linear-gradient(135deg, #0a0f2c, #0f1a4d);
+}
+
+/* -----------------------------
+   CARD LOGIN
+----------------------------- */
+.login-card {
+	background: white;
+	padding: 30px;
+	border-radius: 16px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+	width: 100%;
+	max-width: 350px;
+	text-align: center;
+	transition: 0.3s;
+}
+
+.login-container.dark .login-card {
+	background: rgba(20, 30, 80, 0.9);
+	color: white;
+}
+
+/* -----------------------------
+   TITULO
+----------------------------- */
+.login-card h2 {
+	margin-bottom: 20px;
+	font-size: 24px;
+}
+
+/* -----------------------------
+   INPUTS
+----------------------------- */
+.login-card input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 12px;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	font-size: 14px;
+	transition: 0.2s;
+}
+
+.login-card input:focus {
+	outline: none;
+	border-color: #7c9cff;
+	box-shadow: 0 0 5px rgba(124, 156, 255, 0.4);
+}
+
+/* -----------------------------
+   BOTÓN
+----------------------------- */
+.login-card button {
+	width: 100%;
+	padding: 12px;
+	border: none;
+	border-radius: 10px;
+	font-weight: bold;
+	cursor: pointer;
+	background: linear-gradient(135deg, #cdb4ff, #a2d2ff, #ffc8dd);
+	color: #333;
+	transition: 0.3s;
+}
+
+.login-card button:hover {
+	transform: scale(1.05);
+}
+
+/* Modo oscuro botón */
+.login-container.dark .login-card button {
+	background: linear-gradient(135deg, #1e3a8a, #4c1d95);
+	color: #fff;
+}
+
+/* -----------------------------
+   MENSAJES
+----------------------------- */
+.error {
+	color: #ff4d6d;
+	margin-top: 10px;
+	font-size: 14px;
+}
+
+/* -----------------------------
+   RESPONSIVE
+----------------------------- */
+@media (max-width: 500px) {
+	.login-card {
+		padding: 20px;
+	}
+}

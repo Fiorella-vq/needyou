@@ -1,7 +1,138 @@
-/*
-    home.css: This website contains selectors only used in home.css
+/* -----------------------------
+   BASE
+----------------------------- */
+.home {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	background: linear-gradient(135deg, #f5e9ff, #e0f0ff, #ffe4f0);
+	color: #333;
+	transition: all 0.3s ease;
+}
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+/* -----------------------------
+   MODO OSCURO
+----------------------------- */
+.home.dark {
+	background: linear-gradient(135deg, #0a0f2c, #0f1a4d);
+	color: #eaeaf0;
+}
+
+/* -----------------------------
+   TOP BAR
+----------------------------- */
+.top-bar {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+
+.toggle {
+	padding: 8px 12px;
+	border-radius: 20px;
+	border: none;
+	cursor: pointer;
+	background: #ddd;
+}
+
+.home.dark .toggle {
+	background: #1e2a6d;
+	color: white;
+}
+
+/* -----------------------------
+   HERO
+----------------------------- */
+.hero {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.title {
+	font-size: 48px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.subtitle {
+	font-size: 18px;
+	color: #555;
+}
+
+.home.dark .subtitle {
+	color: #bbb;
+}
+
+/* -----------------------------
+   BOTONES
+----------------------------- */
+.buttons {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	width: 100%;
+	max-width: 300px;
+}
+
+.btn {
+	padding: 12px;
+	border: none;
+	border-radius: 12px;
+	font-weight: bold;
+	cursor: pointer;
+	font-size: 16px;
+	transition: all 0.2s ease;
+}
+
+/* 🎨 Tonos pastel */
+.pastel-blue {
+	background: #d0e8ff;
+	color: #003366;
+}
+
+.pastel-purple {
+	background: #e5d4ff;
+	color: #3a007a;
+}
+
+.pastel-pink {
+	background: #ffd6e8;
+	color: #7a003a;
+}
+
+/* Hover */
+.btn:hover {
+	transform: scale(1.05);
+}
+
+/* Modo oscuro botones */
+.home.dark .pastel-blue {
+	background: #1e3a8a;
+	color: #dbeafe;
+}
+
+.home.dark .pastel-purple {
+	background: #4c1d95;
+	color: #e9d5ff;
+}
+
+/* -----------------------------
+   INFO BOX
+----------------------------- */
+.info {
+	margin-top: 30px;
+	font-size: 14px;
+	opacity: 0.8;
+}
+
+/* -----------------------------
+   RESPONSIVE
+----------------------------- */
+@media (max-width: 600px) {
+	.title {
+		font-size: 36px;
+	}
+}
